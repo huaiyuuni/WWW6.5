@@ -19,7 +19,7 @@ contract Calculator{
     }
 
     function setScientificCalculator(address _address)public onlyOwner{
-        scientificCalculatorAddress = _address;
+        ScientificCalculatorAddress = _address;
     }
 
     function add(uint256 a, uint256 b) public pure returns(uint256){
@@ -45,10 +45,10 @@ contract Calculator{
 // base是底数，exponent是指数
     function calculatepower(uint256 base, uint256 exponent)public view returns(uint256){
 
-    ScientificCalculator scientificCalc =ScientificCalculator(scientificCalculatorAddress);
+    ScientificCalculator ScientificCalc = ScientificCalculator(ScientificCalculatorAddress);
 
-    //external call
-    uint256 result = scientificCalc.power(base, exponent);
+    // external call
+        uint256 result = scientificCalc.power(base, exponent);
 
     return result;
 
