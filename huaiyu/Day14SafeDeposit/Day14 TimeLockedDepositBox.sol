@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import "./Day14 BaseDepositBox.sol";
 
-contract TimeLockedDepositBox is Day14 BaseDepositBox {
+contract TimeLockedDepositBox is BaseDepositBox {
     uint256 private unlockTime;
 //lockDuration以秒为单位
     constructor(uint256 lockDuration) {
