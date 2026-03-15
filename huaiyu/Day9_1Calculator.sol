@@ -1,14 +1,14 @@
 //SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
-//加入ScientificCalculator的代码
+
 import "./ScientificCalculator.sol";
 
 contract Calculator{
-//记录 ScientificCalculator 合约的地址，所有人都能看到
+
     address public owner;
     address public scientificCalculatorAddress;
-//msg.sender部署这个合约的人，owner = msg.sender 把部署者设为所有者
+
     constructor(){
         owner = msg.sender;
     }
@@ -42,7 +42,7 @@ contract Calculator{
         uint256 result = a/b;
         return result;
     }
-// base是底数，exponent是指数
+
     function calculatePower(uint256 base, uint256 exponent)public view returns(uint256){
 
     ScientificCalculator scientificCalc = ScientificCalculator(scientificCalculatorAddress);
