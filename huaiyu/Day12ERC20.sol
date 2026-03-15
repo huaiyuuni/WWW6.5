@@ -20,19 +20,19 @@ contract SimpleER20 {
         emit Transfer(address(0), msg.sender, totalSupply);
     }
 
-    function transfer(address _to, uint256 _value) public returns (bool) {
+    function transfer(address _to, uint256 _value) public virtual returns (bool) {
         require(balanceOf[msg.sender] >= _value, "Not enough balance");
         _transfer(msg.sender, _to, _value);
         return true;
     }
 
-    function approve(address _spender, uint256 _value) public returns (bool) {
+    function approve(address _spender, uint256 _value) public virtual returns (bool) {
         allowance[msg.sender][_spender] = _value;
         emit Approval(msg.sender, _spender, _value);
         return true;
     }
 
-    function transferFrom(address _from, address _to, uint256 _value) public returns (bool) {
+    function transferFrom(address _from, address _to, uint256 _value) public virtual returns (bool) {
         require(balanceOf[_from] >= _value, "Not enough banlance");
         require(allowance[_from][msg.sender] >=_value, "Allowance too low");
 
@@ -47,4 +47,5 @@ contract SimpleER20 {
         balanceOf[_to] += _value;
         emit Transfer(_from, _to, _value);
     }
+
 }
